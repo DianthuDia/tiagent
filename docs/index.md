@@ -1,6 +1,6 @@
-# SuperAgent
+# TiAgent
 
- Super Agent is light-weight progressive ajax API crafted for flexibility, readability, and a low learning curve after being frustrated with many of the existing request APIs.
+ TiAgent is light-weight progressive ajax API crafted for flexibility, readability, and a low learning curve after being frustrated with many of the existing request APIs.
 
      request
        .post('/api/pet')
@@ -51,7 +51,7 @@
 
 ### Crafting requests
 
-  SuperAgent's flexible API gives you the granularity you need, _when_ you need, yet more concise variations help reduce the amount of code necessary. For example the following GET request:
+  TiAgent's flexible API gives you the granularity you need, _when_ you need, yet more concise variations help reduce the amount of code necessary. For example the following GET request:
   
     request
       .get('/search')
@@ -150,7 +150,7 @@
         .data({ pet: 'tobi' })
         .end(callback)
 
-  SuperAgent formats are extensible, however by default "json" and "form" are supported. To send the data as `application/x-www-form-urlencoded` simply invoke `.type()` with "form-data", where the default is "json". This request will POST the body "name=tj&pet=tobi".
+  TiAgent formats are extensible, however by default "json" and "form" are supported. To send the data as `application/x-www-form-urlencoded` simply invoke `.type()` with "form-data", where the default is "json". This request will POST the body "name=tj&pet=tobi".
 
       request.post('/user')
         .type('form')
@@ -168,7 +168,7 @@
 
 ### Response body
 
-  Much like SuperAgent can auto-serialize request data, it can also automatically parse it. When a parser is defined for the Content-Type, it is parsed, which by default includes "application/json" and "application/x-www-form-urlencoded". The parsed object is then available via `res.body`.
+  Much like TiAgent can auto-serialize request data, it can also automatically parse it. When a parser is defined for the Content-Type, it is parsed, which by default includes "application/json" and "application/x-www-form-urlencoded". The parsed object is then available via `res.body`.
 
 ### Response header fields
 
@@ -180,7 +180,7 @@
 
 ### Response status
 
-  The response status flags help determine if the request was a success, among other useful information, making SuperAgent ideal for interacting with RESTful web services. These flags are currently defined as:
+  The response status flags help determine if the request was a success, among other useful information, making TiAgent ideal for interacting with RESTful web services. These flags are currently defined as:
   
      var type = status / 100 | 0;
 

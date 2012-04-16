@@ -14,6 +14,12 @@ test:
 		--growl \
 		$(TESTS)
 
+test-cov: lib-cov
+	SUPERAGENT_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
+
+lib-cov:
+	jscoverage lib lib-cov
+
 tiagent.js: $(SRC)
 	cat $^ > $@
 
@@ -23,7 +29,7 @@ tiagent.min.js: tiagent.js
 test-server:
 	@node test/server
 
-docs: lib test-docs
+docs: test-docs
 
 test-docs:
 	make test REPORTER=doc \
@@ -33,4 +39,4 @@ test-docs:
 clean:
 	rm -f tiagent{,.min}.js
 
-.PHONY: test docs test-docs clean
+.PHONY: test-cov test docs test-docs clean

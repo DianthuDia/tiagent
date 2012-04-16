@@ -49,6 +49,16 @@ describe('request', function(){
     })
   })
 
+  describe('with a callback', function(){
+    it('should invoke .end()', function(done){
+      request
+      .get('localhost:3000/login', function(res){
+        assert(res.status == 200);
+        done();
+      })
+    })
+  })
+
   describe('without a schema', function(){
     it('should default to http', function(done){
       request
@@ -160,7 +170,7 @@ describe('request', function(){
       .post('http://localhost:3000/echo')
       .type('json')
       .end(function(res){
-        res.should.be.json
+        res.should.be.json;
         done();
       });
     })

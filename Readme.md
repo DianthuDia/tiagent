@@ -7,6 +7,12 @@
 
   This library spawned from frustration with jQuery's weak & inconsistent Ajax support. jQuery's API while having recently added some promise-like support, is largely static, forcing you to build up big objects containing all the header fields and options, not to mention most of the options are awkwardly named "type" instead of "method", etc. Onto examples!
 
+## Motivation
+
+  This library spawned from my frustration with jQuery's weak & inconsistent Ajax support. jQuery's API while having recently added some promise-like support, is largely static, forcing you to build up big objects containing all the header fields and options, not to mention most of the options are awkwardly named "type" instead of "method", etc. Onto examples!
+
+  Before we get started, tiagent is namespaced to `tiagent`, however I personally like to just call this `request`:
+
 ```js
 request = tiagent;
 ```
@@ -49,7 +55,7 @@ $.ajax({
 ```js
 request
   .post('/api/pet')
-  .data({ name: 'Manny', species: 'cat' })
+  .send({ name: 'Manny', species: 'cat' })
   .set('X-API-Key', 'foobar')
   .set('Accept', 'application/json')
   .end(function(res){
@@ -94,7 +100,7 @@ request.post('/api/pet', cat, function(res){
     - Firefox 5.x
     - Safari 5.x
     - Chrome 13.x
-    - Titanium 1.8.0.1
+    - Titanium 1.7.x <= 2.0.x
 
 ## License 
 

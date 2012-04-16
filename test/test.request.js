@@ -19,6 +19,16 @@ test('request() simple GET', function(next){
   request('GET', 'test.request.js').end(function(res){
     assert(res instanceof request.Response, 'respond with Response');
     assert(res.ok, 'response should be ok');
+    assert(res.text, 'res.text');
+    next();
+  });
+});
+
+test('request() simple HEAD', function(next){
+  request.head('test.request.js').end(function(res){
+    assert(res instanceof request.Response, 'respond with Response');
+    assert(res.ok, 'response should be ok');
+    assert(!res.text, 'res.text');
     next();
   });
 });
@@ -98,6 +108,13 @@ test('get()', function(next){
   request.get('/notfound').end(function(res){
     assert(404 == res.status, 'response .status');
     assert(4 == res.statusType, 'response .statusType');
+    next();
+  });
+});
+
+test('patch()', function(next){
+  request.patch('/user/12').end(function(res){
+    assert('updated' == res.text, 'response text');
     next();
   });
 });
