@@ -195,6 +195,12 @@ var tiagent = function(exports){
   exports.version = '0.4.1';
 
   /**
+   * Check if mobile app
+   */
+
+  exports.mobile = mobile = (typeof window !== 'object');
+
+  /**
    * Noop.
    */
 
